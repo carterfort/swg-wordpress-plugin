@@ -29,10 +29,10 @@ final class EditPost
 	{
 		add_meta_box(
 			Plugin::key('post-edit-metabox'),
-			'📰 Subscribe with Google',
+			'Subscribe with Google',
 			array(__CLASS__, 'render'),
 			'post',
-			'advanced',
+			'side',
 			'high'
 		);
 	}
