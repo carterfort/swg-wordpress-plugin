@@ -31,7 +31,7 @@ final class AdminPage
 		$capability = 'manage_options';
 		$slug       = 'subscribe_with_google';
 		$callback   = array(__CLASS__, 'render');
-		$icon       = 'dashicons-megaphone';
+		$icon       = 'dashicons-editor-table';
 		$position   = 100;
 
 		add_menu_page(
@@ -47,8 +47,7 @@ final class AdminPage
 
 	/** Renders the admin page. */
 	public static function render()
-	{
-?>
+	{          ?>
 		<div class="wrap">
 			<h2>Subscribe with Google</h2>
 			<form method="post" action="options.php">
@@ -79,6 +78,7 @@ final class AdminPage
 				'label'       => 'Product Names',
 				'type'        => 'textarea',
 				'description' => 'Product names, one per line.',
+				'class'       => 'regular-text ltr',
 			)
 		);
 
@@ -88,6 +88,7 @@ final class AdminPage
 				'label'       => 'Publication ID',
 				'type'        => 'text',
 				'description' => 'Unique indentifier for your publication.',
+				'class'       => 'regular-text ltr',
 			)
 		);
 
@@ -97,6 +98,7 @@ final class AdminPage
 				'label'       => 'OAuth Client ID',
 				'type'        => 'text',
 				'description' => 'Unique identifier for your Google OAuth Client.',
+				'class'       => 'regular-text ltr',
 			)
 		);
 
@@ -106,6 +108,7 @@ final class AdminPage
 				'label'       => 'OAuth Client Secret',
 				'type'        => 'text',
 				'description' => 'Secret key for your Google OAuth Client.',
+				'class'       => 'regular-text ltr',
 			)
 		);
 	}
@@ -149,6 +152,7 @@ final class AdminPage
 		echo ' id="' . esc_attr($setting['uid']) . '"';
 		echo ' name="' . esc_attr($setting['uid']) . '"';
 		echo ' style="min-height: 96px;"'; // TODO: Add external stylesheet.
+		echo ' class="' . esc_attr($setting['class']) . '"';
 		echo '>';
 		echo esc_attr($setting['value']);
 		echo '</textarea>';
@@ -168,6 +172,7 @@ final class AdminPage
 		echo ' id="' . esc_attr($setting['uid']) . '"';
 		echo ' name="' . esc_attr($setting['uid']) . '"';
 		echo ' value="' . esc_attr($setting['value']) . '"';
+		echo ' class="' . esc_attr($setting['class']) . '"';
 		echo '/>';
 		echo '<p class="description">';
 		echo esc_attr($setting['description']);
